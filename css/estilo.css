@@ -1,0 +1,325 @@
+/* global */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.flex{
+    display: flex;
+}
+
+.centrar{
+    justify-content: center;
+}
+
+.separacion{
+    margin-right: 20px;
+}
+
+.columnas{
+    flex-direction: column;
+}
+
+.grid{
+    display: grid;
+    place-items: center;
+}
+
+.final{
+    -ms-flex-align: end;
+}
+
+.evenly{
+    justify-content: space-evenly;
+}
+
+
+:root{
+    background-color: white;
+    color: rgb(170, 4, 4);
+}
+
+a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+li{
+    cursor: pointer;
+    list-style: none;
+}
+
+/* header */
+img {
+    height: 50px;
+}
+.logo{
+    width: 74%;
+    margin: 30px 0;
+
+}
+
+.sesion{
+    width: 24%;
+    margin: 4px 1%;
+}
+button{
+    width: 60%;
+    height: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.fijo{
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+.f1{
+    top: 1rem;
+    right: 1rem;
+    background-image: url(../imagenes/galicia.jpg);
+}
+
+.f2{
+    top: 2.5rem;
+    right: 1rem;
+    background-image: url(../imagenes/españa.jpg);
+}
+
+.f3{
+    top: 4rem;
+    right: 1rem;
+    background-image: url(../imagenes/ingles.png);
+}
+.idiomas{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+
+}
+
+/* main */
+main{
+    min-height: 550px;
+}
+
+.bizquierda{
+    border: 2px solid black;
+    width: 15%;
+    margin-left: 3px;
+}
+
+ul{
+    margin: 10% 20%;
+
+}
+
+.central{
+    border: 2px solid black;
+    width: 62%;
+    margin: 0 1%;
+
+}
+
+.bdereita{
+    border: 2px solid black;
+    width: 16%;
+    padding: 2%;
+}
+
+.eventos{
+    width: 80%;
+    background-color: bisque;
+    border: 1px solid black;
+    height: 40%;
+    margin: 1rem 10%;
+}
+
+
+input{
+    width: 80%;
+    margin-top: 10px;
+}
+
+
+
+
+.informa{
+    border: 2px solid black;
+    width: 98%;
+    height: 70%;
+    background-color: bisque;
+}
+/* footer */
+.pie{
+    margin: 20px;
+    border: 2px solid black;
+}
+.redes{
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30%;
+    cursor: pointer;
+}
+
+.facebook{
+    background-image: url(../imagenes/facebook.png);
+}
+
+.facebook:hover{
+    background-image: url(../imagenes/facebook_hover.png);
+}
+
+.instagram{
+    background-image: url(../imagenes/instagram.png);
+}
+
+.instagram:hover{
+    background-image: url(../imagenes/instagram_hover.png);
+}
+
+.twitter{
+    background-image: url(../imagenes/twitter.png);
+}
+
+.twitter:hover{
+    background-image: url(../imagenes/twitter_hover.png);
+}
+
+
+
+/*  Inicio sesion */
+
+
+  #contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+}
+
+#central {
+    max-width: 320px;
+    width: 100%;
+}
+
+.titulo {
+    font-size: 250%;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#login {
+    width: 100%;
+    padding: 50px 30px;
+    background-color: black;
+    
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    
+    box-sizing: border-box;
+}
+
+#login input {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color: black;
+    
+    display: block;
+    width: 100%;
+    height: 40px;
+    
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 10px;
+    
+    box-sizing: border-box;
+    
+    border: none;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+}
+
+#login input::placeholder {
+    font-family: 'Overpass', sans-serif;
+    color: #E4E4E4;
+}
+
+#login button {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color:black;
+    width: 100%;
+    height: 40px;
+    border: none;
+    
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    
+    background-color: #bbe1fa;
+    
+    margin-top: 10px;
+}
+
+#login button:hover {
+    background-color: #636363;
+    color:red;
+}
+
+.pie-form {
+    font-size: 90%;
+    text-align: center;    
+    margin-top: 15px;
+}
+
+.pie-form a {
+    display: block;
+    text-decoration: none;
+    color: #bbe1fa;
+    margin-bottom: 3px;
+}
+
+.pie-form a:hover {
+    color: red;
+}
+
+.inferior {
+    margin-top: 10px;
+    font-size: 90%;
+    text-align: center;
+}
+
+.inferior a {
+    display: block;
+    text-decoration: none;
+    color: #bbe1fa;
+    margin-bottom: 3px;
+}
+
+.inferior a:hover {
+    color: black;
+}
+
+label {
+    font-weight: bold;
+}
+  
