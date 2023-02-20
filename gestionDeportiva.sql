@@ -15,6 +15,9 @@ create table if not exists usuario(
         constraint pk_usuario primary key (idUsuario)
 );
 
+-- Añadimos nustro usuario administrador
+insert into usuario (nombre, contrasena,correo, rol) values ('alumno', 'abc123.','alumno@gmail.com', 'administrador');
+
 -- Creamos la tabla socio
 create table if not exists socio(
 idSocio smallint(5),
