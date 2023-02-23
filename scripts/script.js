@@ -212,22 +212,122 @@ function cargarPagina(rol){
             '<div class="eventos"></div>'+
             '<div class="enlaces">'+
                 '<ul>'+
-                    '<li>Enlace</li>'+
-                    '<li>Enlace</li>'+
-                    '<li>Enlace</li>'+
-                    '<li>Enlace</li>'+
-                    '<li>Enlace</li>'+
+                    '<li>Datos dos xogadores</li>'+
+                    '<li>Xogadores en encontros</li>'+
+                    '<li>visualizacion dos equipos</li>'+
+                    '<liVisualizacion xeral de equipos</li>'+
+                    '<li>Estadisticas dos xogadores</li>'+
+                    
                 '</ul>'+
             '</div>'+
         '</div>'+
         '<div id="principal" class="central"></div>'+
         '<div class="bdereita columnas">'+
-            '<div class="informa"></div>'+
+            '<div class="informa">'+
+            '<div class="carousel">'+
+              '<div class="carousel-item active">'+
+                '<a href="https://www.sitio3.com"><img src="imagenes/publicidad/imagen1.jfif"></a>'+
+              '</div>'+
+              '<div class="carousel-item">'+
+                '<a href="https://www.sitio3.com"><img src="imagenes/publicidad/imagen2.png"></a>'+
+              '</div>'+
+              '<div class="carousel-item">'+
+                '<a href="https://www.sitio3.com"><img src="imagenes/publicidad/imagen3.png"></a>'+
+              '</div>'+
+                '<button class="carousel-toggle">Ocultar</button>'+
+              '</div>'+
+            '</div>'+
+
+            '</div>'+
         '</div>')
+        var carouselItems = document.querySelectorAll('.carousel-item');
+        var currentSlide = 0;
+        
+        setInterval(() => {
+          carouselItems[currentSlide].className = 'carousel-item';
+          currentSlide = (currentSlide + 1) % carouselItems.length;
+          carouselItems[currentSlide].className = 'carousel-item active';
+        
+      }, 5000);
+
+        var carouselToggle = document.querySelector('.carousel-toggle');
+        var carouselVisible = true;
+
+        carouselToggle.addEventListener('click', function() {
+          if (carouselVisible) {
+            $('.carousel-toggle').css("padding", "0");
+            $('.carousel-item').hide();
+            $('.bdereita').width('20px');
+            $('#principal').width('80%');
+            $('.carousel-toggle').height('100%');
+            $('.carousel-toggle').width('100%');
+            
+            $('.carousel-toggle').text('Mostrar');
+            $('.carousel-toggle').css("transform", "rotate(90deg)");
+            carouselVisible = false;
+          } else {
+            $('.carousel-item').show();
+            $('.bdereita').width('16%');
+            $('#principal').width('65%');
+            $('.carousel-toggle').height('20px');
+            $('.carousel-toggle').text('Ocultar');
+            $('.carousel-toggle').css("transform", "rotate(0deg)");
+            carouselVisible = true;
+          }
+        });
+
+        
+        $(".carousel-item").hover(function() {
+          $(".carousel-item").addClass('filtro');
+        }, function() {
+          $(".carousel-item").removeClass('filtro');
+        });
+
+        // ofertas tienda
+        $('#principal').html('<div class="ofertas">'+
+          '<div class="venta">'+
+          '<h1>Ofertas</h1>'+
+            '<div class="contenedor">'+
+            
+              '<div class="producto"><img src="imagenes/ventas/imagen1.jpg"></div>'+
+              '<div class="producto"><img src="imagenes/ventas/imagen2.jpg"></div>'+
+              '<div class="producto"><img src="imagenes/ventas/imagen3.jpg"></div>'+
+              '<div class="producto"><img src="imagenes/ventas/imagen4.jpg"></div>'+
+              '<div class="producto"><img src="imagenes/ventas/imagen5.jpg"></div>'+
+              '<div class="producto"><img src="imagenes/ventas/imagen6.jpg"></div>'+
+            '</div>'+
+            '<div class="botones">'+
+           ' <button class="btn-izquierda">&lt;</button>'+
+            '<button class="btn-derecha">&gt;</button>'+
+          '</div>'+
+        '</div>');
+        
+        var movimiento = 0;
+        var distancia = $('.producto').outerWidth(true);
+        var productosTotales = $('.producto').length;
+        // productosTotales++;
+        var productosEnVista = Math.round($('.venta').width() / distancia);
+        var movimientoTotal = (productosTotales - productosEnVista) * distancia;
+        
+        $('.btn-izquierda').click(function() {
+          if (movimiento < 0) {
+            movimiento += distancia;
+            $('.contenedor').css('transform', 'translateX(' + movimiento + 'px)');
+          }
+        });
+        
+        $('.btn-derecha').click(function() {
+          if (movimiento > -movimientoTotal) {
+            movimiento -= distancia;
+            $('.contenedor').css('transform', 'translateX(' + movimiento + 'px)');
+          }
+        });
+
+
         $('footer').html(
-          '<div class="facebook redes separacion"><a href="http://google.es" target="_blank"></a></div>'+
-          '<div class="instagram redes separacion"><a href="http://google.es" target="_blank"></a></div>'+
-          '<div class="twitter redes"><a href="http://google.es" target="_blank"></a></div>'
+          '<div class="facebook redes separacion"><a href="https://www.facebook.com/balonman.lalin/?locale=es_ES" target="_blank"></a></div>'+
+          '<div class="instagram redes separacion"><a href="https://www.instagram.com/balonmanlalin/?hl=es" target="_blank"></a></div>'+
+          '<div class="twitter redes"><a href="https://twitter.com/balonmanlalin?lang=es" target="_blank"></a></div>'
         )
       break;
       case 'administrador':
@@ -249,11 +349,20 @@ function cargarPagina(rol){
               '<div class="eventos"></div>'+
               '<div class="enlaces">'+
                   '<ul>'+
-                      '<li>Enlace</li>'+
-                      '<li>Enlace</li>'+
-                      '<li>Enlace</li>'+
-                      '<li>Enlace</li>'+
-                      '<li>Enlace</li>'+
+                  '<li>Xestion das competicións</li>'+
+                  '<li>Xestion das categorias</li>'+
+                  '<li>Xestion dos equipos</li>'+
+                  '<li>xestion dos rivais</li>'+
+                  '<li>xestion dos calendarios</li>'+
+                  '<li>xestion dos encontros</li>'+
+                  '<li>xestion dos postos</li>'+
+                  '<li>xestion dos datos dos xogadores</li>'+
+                  '<li>Datos dos xogadores</li>'+
+                  '<li>Xogadores en encontros</li>'+
+                  '<li>visualizacion dos equipos</li>'+
+                  '<liVisualizacion xeral de equipos</li>'+
+                  '<li>Estadisticas dos xogadores</li>'+
+                  '<li>xestion dos socios</li>'+
                   '</ul>'+
               '</div>'+
           '</div>'+
@@ -262,9 +371,9 @@ function cargarPagina(rol){
               '<div class="informa"></div>'+
           '</div>')
           $('footer').html(
-            '<div class="facebook redes separacion"><a href="http://google.es" target="_blank"></a></div>'+
-            '<div class="instagram redes separacion"><a href="http://google.es" target="_blank"></a></div>'+
-            '<div class="twitter redes"><a href="http://google.es" target="_blank"></a></div>'
+            '<div class="facebook redes separacion"><a href="https://www.facebook.com/balonman.lalin/?locale=es_ES" target="_blank"></a></div>'+
+            '<div class="instagram redes separacion"><a href="https://www.instagram.com/balonmanlalin/?hl=es" target="_blank"></a></div>'+
+            '<div class="twitter redes"><a href="https://twitter.com/balonmanlalin?lang=es" target="_blank"></a></div>'
           )
       break;
   }

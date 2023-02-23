@@ -115,24 +115,33 @@ main{
 
 ul{
     margin: 10% 20%;
+    font-size: 15px;
+}
 
+li{
+    margin: 10px 0;
+    color: black;
+}
+
+li:hover{
+    color: rgb(170, 4, 4);
+    font-weight: bold;
 }
 
 .central{
     border: 2px solid black;
-    width: 62%;
+    width: 65%;
     margin: 0 1%;
 
 }
 
 .bdereita{
-    border: 2px solid black;
     width: 16%;
-    padding: 2%;
 }
 
 .eventos{
     width: 80%;
+    min-height: 200px;
     background-color: bisque;
     border: 1px solid black;
     height: 40%;
@@ -150,14 +159,12 @@ input{
 
 .informa{
     border: 2px solid black;
-    width: 98%;
-    height: 70%;
-    background-color: bisque;
+    width: 100%;
+    height: 100%;
 }
 /* footer */
 .pie{
     margin: 20px;
-    border: 2px solid black;
 }
 .redes{
     width: 40px;
@@ -323,3 +330,132 @@ label {
     font-weight: bold;
 }
   
+
+/* carrousel publicidad */
+.carousel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    background-color: #000000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .carousel-item.active {
+    opacity: 1;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .carousel-toggle {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .carousel-dot.active {
+    opacity: 1;
+  }
+  
+  .carousel-toggle {
+    background-color: #ffffff;
+    bottom: 0;
+    width: 100%;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carousel-item:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.5);
+    z-index: 1;
+  }
+  
+  .carousel-item::before {
+    display: none;
+  }
+
+  .filtro {
+    filter: hue-rotate(-0.25turn);
+  }
+
+  /* Carrousel ventas */
+
+  .venta {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .venta h1{
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .contenedor {
+        white-space: nowrap;
+        font-size: 0;
+        transition: transform .3s;
+      }
+      
+      .producto {
+        display: inline-block;
+        width: calc(100% / 4);
+        font-size: 16px;
+        vertical-align: top;
+        margin-right: -4px;
+      }
+      
+      .producto img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+      }
+      
+      .botones {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .btn-izquierda,
+.btn-derecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 30px;
+}
+
+.btn-izquierda {
+  left: 0;
+}
+
+.btn-derecha {
+  right: 0;
+}

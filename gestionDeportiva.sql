@@ -17,6 +17,7 @@ create table if not exists usuario(
 
 -- Añadimos nustro usuario administrador
 insert into usuario (nombre, contrasena,correo, rol) values ('alumno', 'abc123.','alumno@gmail.com', 'administrador');
+insert into usuario (nombre, contrasena,correo, rol) values ('alumnx', 'abc123.','alumnx@gmail.com', 'gestor');
 
 -- Creamos la tabla socio
 create table if not exists socio(
@@ -170,3 +171,99 @@ alter table rival
 -- Añadimos a la tabla equipo
 alter table equipo
 	add constraint fk_equipo_categoria foreign key (categoria) references categoria(idCategoria);
+
+
+
+-- Añadimos socio
+INSERT INTO socio (idSocio, numero, nombre, apelidos, cota, ccc, comentarios, responsable, foto, entregado, cobrado)
+VALUES (1, 9999, "José Manuel", "Sierra González", 99, '?', "Pai de Roi", "alumno", "/images/JoseMGonzalez.png", "SI", "SI"),
+(2, 9998, "Iago ", "Pereiro Troitiño", 99, '?', "Irmán de Almudena", "alumno", "/images/IagoPereiro.png", "SI", "NO"),
+(3, 9997, "Javier", "Vázquez Cruz", 99, '?', "Pai de Brais", "alumno", "/images/JavierVazquez.png", "NO", "SI"),
+(4, 9996, "Natasha", "Núñez Salán", 99, '?', "Nai de Diego", "alumno", "/images/NatashaNuñez.png", "NO", "NO");
+
+-- Añadimos categoria
+INSERT INTO categoria (idCategoria, nombre, nombreCorto)
+VALUES ("1EM", "Primera Estatal Masculina", "1EM"),
+("1AF", "Primera Autonomica Femenina", "1AF"),
+("XHM", "DH Xuvenil Masculina", "XHM"),
+("XHF", "DH Xuvenil Femenina", "XHF");
+
+
+-- Añadimos equipo
+INSERT INTO equipo (idEquipo, nombre, categoria, temporada, foto, logo, web)
+VALUES (1, "Embutidos lalinense", "1EM", "2016", "/images/embutidosLalilense.png", "/images/logoLalilense.png", "www.embutidoslalinense.com"),
+(2, "Coreti", "1EM", "2016", "/images/coreti.png", "/images/coreti.png", "www.coreti.com"),
+(3, "Academia Octavio", "1EM", "2016","/images/academiaOctavio.png", "/images/academiaOctavio.png", "www.academiaOctavio.com"),
+(4, "Clínica Deza", "1EM", "2016", "/images/clinicaDeza.png", "/images/clinicaDeza.png", "www.clinicadeza.es"),
+(5, "Clínica Deza", "XHM", "2016", "/images/clinicaDeza.png", "/images/clinicaDeza.png", "www.clinicadeza.es"),
+(6, "Coreti", "1AF", "2016", "/images/coreti.png", "/images/coreti.png", "www.coreti.com"),
+(7, "Academia Octavio", "1AF", "2016","/images/academiaOctavio.png", "/images/academiaOctavio.png", "www.academiaOctavio.com"),
+(8, "Embutidos lalinense", "1AF", "2016", "/images/embutidosLalilense.png", "/images/logoLalilense.png", "www.embutidoslalinense.com"),
+(9, "IES Ramón Ulloa", "1AF", "2016", "/images/ramonUlloa.png", "/images/logoLalilense.png", "www.edu.xunta.gal/centros/iesallerulloa/"),
+(10, "IES Ramón Ulloa", "1EM", "2016", "/images/ramonUlloa.png", "/images/logoLalilense.png", "www.edu.xunta.gal/centros/iesallerulloa/");
+
+-- Añadimos Rivales
+INSERT INTO rival (idRival, nombre, equipo, abreviatura)
+VALUES (1, "Academia Octavio", 3, "ACO"),
+(2, "Clinica Deza", 4, "CLD"),
+(3, "Coreti", 2, "CRT"),
+(4, "IES Ramón Ulloa", 10, "RMU"),
+(5, "IES Ramón Ulloa", 9, "RMU"),
+(6, "Coreti", 6, "CRT");
+
+
+
+-- Añadimos jugador
+INSERT INTO jugador (idJugador, nombre, apellido1, apellido2, fechaNac, apodo, casa, movil)
+VALUES ('09548754P', "Roi", "Sierra", "González", "2000-03-01", "Tirador", "Rúa C", "678678678"),
+('89546654R', "Almudena", "Pereiro", "Trotiño", "1999-07-01", "Mecha", "Rúa A", "654654654"),
+('57803845S', "Brais", "Vázquez", "Cruz", "2001-08-23", "Goleador", "Rúa B", "643643643"),
+('34530298B', "Diego", "Núñez", "Salán", "1996-09-02", "Pasadordor", "Rúa D", "689689689");
+
+-- Añadimos competicion
+INSERT INTO competicion (idCompeticion, nombre)
+VALUES (1, "Copa Deputacion"),
+(2, "Copa Federación"),
+(3, "Copa Xunta de Galicia");
+
+
+-- Añadimos partido
+INSERT INTO partido (idPartido, equipo, rival, competicion, jornada, onde)
+VALUES (1, 1, 2, 1, 1, "L"),
+(2, 3, 4, 2, 2, "V"),
+(3, 10, 3, 3, 3, "L"),
+(4, 8, 6, 3, 4, "L"),
+(5, 7, 5, 2, 5, "V");
+
+-- Añadimos acta_partido
+INSERT INTO acta_partido (idPartido, fecha, golesLocal1, golesLocal2, golesLocal3, golesLocal4, golesVisitante1, golesVisitante2, golesVisitante3, golesVisitante4)
+VALUES (1, "2016-06-23", 1, 1, 1, 0, 0, 1, 1, 0),
+(2, "2016-06-30", 0, 0, 0, 1, 1, 0, 0, 1),
+(3, "2016-07-05", 1, 1, 1, 0, 0, 1, 1, 0),
+(4, "2016-07-12", 1, 1, 0, 0, 1, 1, 0, 1),
+(5, "2016-07-22", 1, 0, 1, 1, 0, 1, 1, 0);
+
+
+
+-- Añadimos acta_jugador
+INSERT INTO acta_jugador (idPartido, idJugador, goles, amarilla, exclusion1, exclusion2, descalificacion, expulsion)
+VALUES (1, '09548754P', 99, 5, 1, 0, 1, 0),
+(2, '89546654R', 98, 3, 0, 1, 0, 1),
+(3, '57803845S', 97, 8, 0, 0, 0, 0),
+(4, '34530298B', 96, 12, 1, 1, 1, 1);
+
+
+-- añadimos posicion
+INSERT INTO posicion (idPosicion, nombre)
+VALUES (1,"Adestrador"),
+(2, "Central"),
+(3, "Universal");
+
+
+-- Añadimos Temporada 
+INSERT INTO temporada (idJugador, idEquipo, dorsal, peso, estatura, posicion)
+VALUES ('09548754P',1,99, "999", "999",2),
+('89546654R', 2, 98, "999", "999",2),
+('57803845S', 3, 97, "999", "999",3),
+('34530298B', 4, 96, "999", "999",3);
+
