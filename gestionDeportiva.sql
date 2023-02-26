@@ -186,7 +186,8 @@ INSERT INTO categoria (idCategoria, nombre, nombreCorto)
 VALUES ("1EM", "Primera Estatal Masculina", "1EM"),
 ("1AF", "Primera Autonomica Femenina", "1AF"),
 ("XHM", "DH Xuvenil Masculina", "XHM"),
-("XHF", "DH Xuvenil Femenina", "XHF");
+("XHF", "DH Xuvenil Femenina", "XHF"),
+("0", "eliminado", "0");
 
 
 -- Añadimos equipo
@@ -222,18 +223,19 @@ VALUES ('09548754P', "Roi", "Sierra", "González", "2000-03-01", "Tirador", "Rú
 
 -- Añadimos competicion
 INSERT INTO competicion (idCompeticion, nombre)
-VALUES (1, "Copa Deputacion"),
-(2, "Copa Federación"),
-(3, "Copa Xunta de Galicia");
+VALUES ('CDI', "Copa Deputacion"),
+('CFE', "Copa Federación"),
+('CXG', "Copa Xunta de Galicia"),
+("0", "eliminado");
 
 
 -- Añadimos partido
 INSERT INTO partido (idPartido, equipo, rival, competicion, jornada, onde)
-VALUES (1, 1, 2, 1, 1, "L"),
-(2, 3, 4, 2, 2, "V"),
-(3, 10, 3, 3, 3, "L"),
-(4, 8, 6, 3, 4, "L"),
-(5, 7, 5, 2, 5, "V");
+VALUES (1, 1, 2,'CDI', 1, "L"),
+(2, 3, 4, 'CXG', 2, "V"),
+(3, 10, 3, 'CXG', 3, "L"),
+(4, 8, 6, 'CXG', 4, "L"),
+(5, 7, 5, 'CFE', 5, "V");
 
 -- Añadimos acta_partido
 INSERT INTO acta_partido (idPartido, fecha, golesLocal1, golesLocal2, golesLocal3, golesLocal4, golesVisitante1, golesVisitante2, golesVisitante3, golesVisitante4)
